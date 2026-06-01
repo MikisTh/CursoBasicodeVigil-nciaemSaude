@@ -375,6 +375,45 @@ color:#0057B8;
     margin-top:20px;
 }
 
+.materiais-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.material-card{
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
+}
+
+.material-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.08);
+}
+
+.material-icon{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.material-card h3{
+    margin-bottom:10px;
+    color:#003A7A;
+}
+
+.material-card p{
+    margin-bottom:20px;
+    color:#64748b;
+}
+
 </style>
 </head>
 <body>
@@ -1556,70 +1595,99 @@ Videoaula → Materiais → Podcast → Leitura → Atividade -->
 
 <div id="materiais" class="tab">
 
-<div class="card">
+    <div class="card">
 
-<h2>Materiais Complementares</h2>
+        <div class="modulo-tag">
+            📚 Materiais Complementares
+        </div>
 
-<div class="material">
-<span>Apostila do Curso (PDF)</span>
-<a href="#">Baixar</a>
+        <h2>Biblioteca de Conteúdos</h2>
+
+        <p>
+            Faça download dos materiais de apoio utilizados durante o curso.
+        </p>
+
+        <div class="materiais-grid">
+
+            <div class="material-card">
+                <div class="material-icon">📘</div>
+                <h3>Apostila do Curso</h3>
+                <p>Material completo em PDF.</p>
+                <a href="arquivos/apostila.pdf" class="btn-curso" target="_blank">
+                    Abrir PDF
+                </a>
+            </div>
+
+            <div class="material-card">
+                <div class="material-icon">📊</div>
+                <h3>Slides da Aula</h3>
+                <p>Apresentação oficial.</p>
+                <a href="arquivos/slides.pdf" class="btn-curso" target="_blank">
+                    Visualizar
+                </a>
+            </div>
+
+            <div class="material-card">
+                <div class="material-icon">⚖️</div>
+                <h3>Legislação Atualizada</h3>
+                <p>Normativas e portarias.</p>
+                <a href="arquivos/legislacao.pdf" class="btn-curso" target="_blank">
+                    Abrir
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
-
-<div class="material">
-<span>Manual de Vigilância em Saúde</span>
-<a href="#">Baixar</a>
-</div>
-
-<div class="material">
-<span>Legislação Atualizada</span>
-<a href="#">Baixar</a>
-</div>
-
-</div>
-
-</div>
-
 <div id="avaliacao" class="tab">
 
-<div class="card">
+    <div class="card atividade-card">
 
-<h2>Avaliação Final</h2>
+        <div class="modulo-tag">
+            📝 Avaliação Final
+        </div>
 
-<p>
-Após concluir todos os módulos, realize a avaliação para emissão do certificado.
-</p>
+        <h2>Teste de Conhecimentos</h2>
 
-<br>
+        <p>
+            Após concluir todos os módulos, realize a avaliação final para validar seus conhecimentos.
+        </p>
 
-<button style="
-background:#0057B8;
-color:white;
-border:none;
-padding:15px 25px;
-border-radius:12px;
-cursor:pointer;
-">
-Iniciar Avaliação
-</button>
+        <button class="btn-curso">
+            🚀 Iniciar Avaliação
+        </button>
 
-</div>
+    </div>
 
 </div>
 
 <div id="certificado" class="tab">
 
-<div class="card">
+    <div class="card atividade-card">
 
-<h2>Certificado</h2>
+        <div class="modulo-tag">
+            🏆 Certificação
+        </div>
 
-<p>
-Disponível após aprovação na avaliação final.
-</p>
+        <h2>Certificado de Conclusão</h2>
+
+        <p>
+            O certificado será liberado automaticamente após a aprovação na avaliação final.
+        </p>
+
+        <div class="progresso">
+            <span></span>
+        </div>
+
+        <p style="margin-top:15px;">
+            Progresso do curso: 40%
+        </p>
+
+    </div>
 
 </div>
-
-</div>
-
 </div>
 
 </div>
