@@ -65,10 +65,12 @@ header p{
 .container{
     display:flex;
     min-height:100vh;
+    align-items:flex-start;
 }
 
 
 .sidebar{
+    flex:0 0 300px;
     width:300px;
     background:white;
     padding:25px;
@@ -77,6 +79,8 @@ header p{
     top:0;
     height:100vh;
     overflow-y:auto;
+
+    
 }
 
 .menu button{
@@ -121,7 +125,9 @@ transform:none;
 }
  .content{
     flex:1;
-    padding:50px;
+    padding:40px;
+    width:100%;
+    overflow-x:hidden;
 }
 
 .tab{
@@ -144,8 +150,7 @@ transform:none;
     box-shadow:0 4px 20px rgba(0,0,0,.04);
     transition:.3s;
     margin-bottom:40px;
-    width:100%;
-    max-width:1200px;
+    width:100%;   
 }
 
 .card:last-child{
