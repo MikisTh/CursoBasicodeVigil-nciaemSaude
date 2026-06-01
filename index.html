@@ -124,6 +124,11 @@ transform:none;
     padding:50px;
 }
 
+.tab{
+    display:none;
+    animation:fade .4s ease;
+}
+
 .tab.active{
     display:flex;
     flex-direction:column;
@@ -137,6 +142,11 @@ transform:none;
     border:1px solid #e5e7eb;
     box-shadow:0 4px 20px rgba(0,0,0,.04);
     transition:.3s;
+    margin-bottom:40px;
+}
+
+.card:last-child{
+    margin-bottom:0;
 }
 
 .card:hover{
@@ -230,21 +240,6 @@ footer{
     transition:.3s;
 }
 
-.material-list a:hover{
-    background:#eaf4ff;
-    transform:translateX(5px);
-}
-
-.btn-curso{
-    background:#005ca9;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:600;
-}
-
 .btn-curso{
 display:inline-flex;
 align-items:center;
@@ -252,7 +247,6 @@ justify-content:center;
 gap:8px;
 background:linear-gradient(135deg,#0057B8,#003A7A
 );
-
 color:white;
 border:none;
 padding:14px 28px;
