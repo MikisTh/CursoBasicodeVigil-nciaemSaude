@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Curso Básico de Vigilância em Saúde</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --azul:#0057B8;
+    --azul-escuro:#003A7A;
+    --verde:#00A859;
+    --cinza:#f5f7fa;
+    --texto:#1f2937;
+    --branco:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:var(--cinza);
+    color:var(--texto);
+}
+
+header{
+    background:linear-gradient(135deg,var(--azul),var(--azul-escuro));
+    color:white;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+header h1{
+    font-size:2rem;
+}
+
+header p{
+    margin-top:10px;
+    opacity:.9;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:280px;
+    background:white;
+    border-right:1px solid #e5e7eb;
+    padding:20px;
+}
+
+.sidebar h3{
+    margin-bottom:20px;
+    color:var(--azul);
+}
+
+.menu button{
+    width:100%;
+    border:none;
+    background:#f3f4f6;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:12px;
+    cursor:pointer;
+    text-align:left;
+    transition:.3s;
+    font-weight:600;
+}
+
+.menu button:hover{
+    background:#dbeafe;
+}
+
+.menu button.active{
+    background:var(--azul);
+    color:white;
+}
+
+.content{
+    flex:1;
+    padding:35px;
+}
+
+.tab{
+    display:none;
+}
+
+.tab.active{
+    display:block;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.card h2{
+    color:var(--azul);
+    margin-bottom:15px;
+}
+
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.video iframe{
+    width:100%;
+    height:220px;
+    border:none;
+    border-radius:15px;
+}
+
+.material{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#f9fafb;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:12px;
+}
+
+.material a{
+    text-decoration:none;
+    color:white;
+    background:var(--verde);
+    padding:10px 18px;
+    border-radius:10px;
+}
+
+.progresso{
+    height:12px;
+    background:#d1d5db;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+.progresso span{
+    display:block;
+    width:40%;
+    height:100%;
+    background:var(--verde);
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#6b7280;
+}
+
+@media(max-width:900px){
+
+.container{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+}
+
+}
+
+.material-list{
+    list-style:none;
+    padding:0;
+}
+
+.material-list li{
+    margin:12px 0;
+}
+
+.material-list a{
+    display:block;
+    padding:14px;
+    background:#f8fafc;
+    border-left:5px solid #005ca9;
+    border-radius:10px;
+    text-decoration:none;
+    color:#1e293b;
+    transition:.3s;
+}
+
+.material-list a:hover{
+    background:#eaf4ff;
+    transform:translateX(5px);
+}
+
+.btn-curso{
+    background:#005ca9;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.btn-curso:hover{
+    background:#004b88;
+}
+
+.material-item{
+    padding:15px;
+    background:#f8fafc;
+    border-radius:12px;
+    border:1px solid #e2e8f0;
+}
+
+iframe{
+    border-radius:12px;
+}
+
+.video-player{
+width:100%;
+height:450px;
+border-radius:15px;
+}
+
+.slide-viewer{
+width:100%;
+height:700px;
+border-radius:16px;
+background:#fff;
+margin-top:15px;
+box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+.slide-actions{
+margin-top:20px;
+gap:12px;
+}
+
+.audio-player{
+width:100%;
+}
+
+.material-list li{
+line-height:2;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Curso Básico de Vigilância em Saúde</h1>
+    <p>Capacitação Online • Sistema Único de Saúde</p>
+</header>
+
+<div class="container">
+
+<div class="sidebar">
+
+<h3>Conteúdo</h3>
+
+<div class="menu">
+
+<button class="active" onclick="abrirTab('inicio',this)">🏠 Início</button>
+
+<button onclick="abrirTab('mod1',this)">📘 Introdução</button>
+
+<button onclick="abrirTab('mod2',this)">🦠 Vigilância Epidemiológica</button>
+
+<button onclick="abrirTab('mod3',this)">🏥 Vigilância Sanitária</button>
+
+<button onclick="abrirTab('mod4',this)">🌱 Vigilância Ambiental</button>
+
+<button onclick="abrirTab('mod5',this)">👷 Saúde do Trabalhador</button>
+
+<button onclick="abrirTab('videos',this)">🎥 Videoaulas</button>
+
+<button onclick="abrirTab('materiais',this)">📂 Materiais</button>
+
+<button onclick="abrirTab('avaliacao',this)">📝 Avaliação</button>
+
+<button onclick="abrirTab('certificado',this)">🏆 Certificado</button>
+
+</div>
+
+</div>
+
+<div class="content">
+
+<div id="inicio" class="tab active">
+
+<div class="card">
+<h2>Bem-vindo(a)</h2>
+
+<p>
+Este curso tem como objetivo apresentar os fundamentos da Vigilância em Saúde,
+suas áreas de atuação, instrumentos e importância para o Sistema Único de Saúde.
+</p>
+
+<div class="progresso">
+<span></span>
+</div>
+
+<p style="margin-top:10px;">
+Progresso do Curso: 40%
+</p>
+
+</div>
+
+</div>
+
+<div id="mod1" class="tab">
+
+    <div class="card">
+        <h2>📚 Módulo 1 - Introdução à Vigilância em Saúde</h2>
+
+        <p>
+            Conheça os conceitos fundamentais da Vigilância em Saúde, sua
+            importância para a proteção da população, a legislação vigente,
+            a organização do Sistema Único de Saúde (SUS) e a integração das
+            diferentes áreas de vigilância.
+        </p>
+    </div>
+
+    <!-- OBJETIVOS DE APRENDIZAGEM -->
+<div class="card">
+    <h3>🎯 Objetivos de Aprendizagem</h3>
+
+    <ul class="material-list">
+        <li><a href="#">Compreender os conceitos fundamentais do tema.</a></li>
+        <li><a href="#">Identificar os principais instrumentos utilizados na prática.</a></li>
+        <li><a href="#">Reconhecer a aplicação das ações de vigilância no SUS.</a></li>
+        <li><a href="#">Analisar situações reais relacionadas ao conteúdo estudado.</a></li>
+    </ul>
+</div>
+
+<!-- COMPETÊNCIAS DESENVOLVIDAS -->
+<div class="card">
+    <h3>🏆 Competências Desenvolvidas</h3>
+
+    <div class="material-item">
+        <p>Ao concluir este módulo, o participante será capaz de:</p>
+
+        <ul style="margin-top:15px;padding-left:20px;line-height:1.8;">
+            <li>Interpretar informações técnicas relacionadas ao tema.</li>
+            <li>Aplicar conceitos de vigilância em situações práticas.</li>
+            <li>Utilizar documentos normativos e protocolos.</li>
+            <li>Contribuir para ações de promoção e proteção da saúde.</li>
+        </ul>
+    </div>
+</div>
+
+    <!-- VÍDEO -->
+    <div class="card">
+        <h3>🎥 Videoaula</h3>
+
+        <iframe
+            width="100%"
+            height="450"
+            src="https://www.youtube.com/embed/SEU_VIDEO"
+            title="Videoaula"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- MATERIAIS -->
+    <div class="card">
+        <h3>📂 Materiais para Download</h3>
+
+        <ul class="material-list">
+            <li>
+                <a href="materiais/modulo1/apresentacao.pdf" target="_blank">
+                    📄 Apresentação do Módulo (PDF)
+                </a>
+            </li>
+
+            <li>
+                <a href="materiais/modulo1/manual-vigilancia.pdf" target="_blank">
+                    📘 Manual de Vigilância em Saúde
+                </a>
+            </li>
+
+            <li>
+                <a href="materiais/modulo1/legislacao.docx" target="_blank">
+                    📝 Legislação Básica (Word)
+                </a>
+            </li>
+
+            <li>
+                <a href="materiais/modulo1/slides.pptx" target="_blank">
+                    📊 Slides da Aula (PowerPoint)
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ÁUDIO -->
+    <div class="card">
+        <h3>🎧 Podcast Complementar</h3>
+
+        <audio controls style="width:100%;">
+            <source src="audios/modulo1.mp3" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+        </audio>
+    </div>
+
+    <!-- LEITURA -->
+    <div class="card">
+        <h3>📖 Leitura Complementar</h3>
+
+        <div class="material-item">
+            <h4>Política Nacional de Vigilância em Saúde</h4>
+            <p>
+                Documento que orienta as ações de vigilância em todo o território nacional.
+            </p>
+
+            <a href="materiais/modulo1/pnvs.pdf" target="_blank">
+                Abrir Documento
+            </a>
+        </div>
+    </div>
+
+    <!-- ATIVIDADE -->
+    <div class="card">
+        <h3>📝 Atividade do Módulo</h3>
+
+        <p>
+            Após estudar o conteúdo, responda ao questionário de fixação.
+        </p>
+
+        <button class="btn-curso">
+            Iniciar Atividade
+        </button>
+    </div>
+
+</div>
+
+<div id="mod2" class="tab">
+
+
+        <!--vigilancia epidemiologica--> 
+
+<div class="card">
+<h2>Módulo 2 - Vigilância Epidemiológica</h2>
+
+<div class="card">
+
+<h3>🎯 Objetivos de Aprendizagem</h3>
+
+<ul class="material-list">
+
+<li>
+<a href="#">
+Compreender o conceito e as atribuições da Vigilância Epidemiológica
+</a>
+</li>
+
+<li>
+<a href="#">
+Identificar doenças e agravos de notificação compulsória
+</a>
+</li>
+
+<li>
+<a href="#">
+Conhecer os sistemas de informação em saúde
+</a>
+</li>
+
+<li>
+<a href="#">
+Reconhecer etapas da investigação epidemiológica
+</a>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>📚 Conteúdos Abordados</h3>
+
+<div class="material-item">
+
+<p>
+• Conceitos básicos de epidemiologia<br>
+• Notificação compulsória<br>
+• SINAN, SIM e SINASC<br>
+• Investigação de surtos<br>
+• Indicadores epidemiológicos<br>
+• Monitoramento de doenças transmissíveis e não transmissíveis
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>🏆 Competências Desenvolvidas</h3>
+
+<div class="material-item">
+
+<p>
+Ao concluir este módulo o participante será capaz de interpretar dados
+epidemiológicos, identificar eventos de interesse em saúde pública e
+compreender o fluxo de notificação e investigação de agravos.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="mod2" class="tab">
+
+    <div class="card">
+
+        <h2>🦠 Módulo 2 - Vigilância Epidemiológica</h2>
+
+        <p>
+            A Vigilância Epidemiológica é responsável pelo monitoramento contínuo
+            de doenças e agravos à saúde, permitindo identificar riscos,
+            investigar surtos e orientar ações de prevenção e controle.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>🎯 Objetivos de Aprendizagem</h3>
+
+        <ul style="padding-left:20px;line-height:2;">
+            <li>Compreender o papel da Vigilância Epidemiológica.</li>
+            <li>Conhecer os sistemas de informação em saúde.</li>
+            <li>Identificar doenças e agravos de notificação compulsória.</li>
+            <li>Entender as etapas da investigação epidemiológica.</li>
+        </ul>
+
+    </div>
+
+    <div class="card">
+
+        <h3>🏆 Competências Desenvolvidas</h3>
+
+        <ul style="padding-left:20px;line-height:2;">
+            <li>Analisar indicadores epidemiológicos.</li>
+            <li>Interpretar dados do SINAN.</li>
+            <li>Reconhecer surtos e epidemias.</li>
+            <li>Aplicar medidas de prevenção e controle.</li>
+        </ul>
+
+    </div>
+
+    <div class="card">
+
+        <h3>🎥 Videoaula</h3>
+
+        <iframe
+            width="100%"
+            height="450"
+            src="https://www.youtube.com/embed/SEU_VIDEO_MOD2"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+    <div class="card">
+
+        <h3>📂 Materiais para Download</h3>
+
+        <ul class="material-list">
+            <li><a href="materiais/modulo2/apresentacao.pdf">📄 Apresentação do Módulo</a></li>
+            <li><a href="materiais/modulo2/manual-epidemiologia.pdf">📘 Manual de Vigilância Epidemiológica</a></li>
+            <li><a href="materiais/modulo2/sinan.pdf">📊 Guia do SINAN</a></li>
+            <li><a href="materiais/modulo2/slides.pptx">📑 Slides da Aula</a></li>
+        </ul>
+
+    </div>
+
+    <div class="card">
+
+        <h3>🎧 Podcast Complementar</h3>
+
+        <audio controls style="width:100%;">
+            <source src="audios/modulo2.mp3" type="audio/mpeg">
+        </audio>
+
+    </div>
+
+    <div class="card">
+
+        <h3>📖 Leitura Complementar</h3>
+
+        <div class="material-item">
+
+            <h4>Investigação Epidemiológica</h4>
+
+            <p>
+                Conheça os procedimentos utilizados na identificação
+                e investigação de surtos e epidemias.
+            </p>
+
+            <a href="materiais/modulo2/leitura.pdf">
+                Abrir Documento
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>📝 Atividade do Módulo</h3>
+
+        <p>
+            Responda às questões sobre notificação compulsória,
+            SINAN e investigação epidemiológica.
+        </p>
+
+        <button class="btn-curso">
+            Iniciar Atividade
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+MÓDULO 3 - VIGILÂNCIA SANITÁRIA
+========================================= -->
+
+<div id="mod3" class="tab">
+
+<div class="card">
+
+<h2>🏥 Módulo 3 - Vigilância Sanitária</h2>
+
+<p>
+A Vigilância Sanitária atua na prevenção e redução de riscos
+relacionados à produção e ao consumo de bens, produtos e serviços,
+protegendo a saúde da população.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🎯 Objetivos de Aprendizagem</h3>
+
+<ul style="padding-left:20px;line-height:2;">
+<li>Compreender a atuação da Vigilância Sanitária.</li>
+<li>Conhecer os processos de fiscalização.</li>
+<li>Identificar riscos sanitários.</li>
+<li>Reconhecer a importância da regulação sanitária.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🏆 Competências Desenvolvidas</h3>
+
+<ul style="padding-left:20px;line-height:2;">
+<li>Interpretar normas sanitárias.</li>
+<li>Avaliar riscos em produtos e serviços.</li>
+<li>Identificar irregularidades sanitárias.</li>
+<li>Promover boas práticas sanitárias.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🎥 Videoaula</h3>
+
+<iframe
+width="100%"
+height="450"
+src="https://www.youtube.com/embed/SEU_VIDEO_MOD3"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div class="card">
+
+<h3>📂 Materiais para Download</h3>
+
+<ul class="material-list">
+<li><a href="materiais/modulo3/apresentacao.pdf">📄 Apresentação do Módulo</a></li>
+<li><a href="materiais/modulo3/manual-sanitario.pdf">📘 Manual de Vigilância Sanitária</a></li>
+<li><a href="materiais/modulo3/inspecao.pdf">📋 Procedimentos de Inspeção</a></li>
+<li><a href="materiais/modulo3/slides.pptx">📊 Slides da Aula</a></li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🎧 Podcast Complementar</h3>
+
+<audio controls style="width:100%;">
+<source src="audios/modulo3.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<div class="card">
+
+<h3>📖 Leitura Complementar</h3>
+
+<div class="material-item">
+
+<h4>Boas Práticas Sanitárias</h4>
+
+<p>
+Princípios para garantir a segurança sanitária
+em produtos e serviços.
+</p>
+
+<a href="materiais/modulo3/leitura.pdf">
+Abrir Documento
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>📝 Atividade do Módulo</h3>
+
+<p>
+Resolva as questões relacionadas às ações
+de fiscalização e inspeção sanitária.
+</p>
+
+<button class="btn-curso">
+Iniciar Atividade
+</button>
+
+</div>
+
+</div>
+
+<!-- =========================================
+MÓDULO 4 - VIGILÂNCIA AMBIENTAL
+========================================= -->
+
+<div id="mod4" class="tab">
+
+<div class="card">
+
+<h2>🌱 Módulo 4 - Vigilância Ambiental</h2>
+
+<p>
+A Vigilância Ambiental monitora fatores ambientais
+que podem interferir na saúde humana, contribuindo
+para a prevenção de doenças e promoção da qualidade de vida.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🎯 Objetivos de Aprendizagem</h3>
+
+<ul style="padding-left:20px;line-height:2;">
+<li>Compreender a relação entre ambiente e saúde.</li>
+<li>Conhecer fatores ambientais de risco.</li>
+<li>Entender o controle de vetores.</li>
+<li>Reconhecer impactos ambientais na saúde coletiva.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🏆 Competências Desenvolvidas</h3>
+
+<ul style="padding-left:20px;line-height:2;">
+<li>Identificar fatores ambientais de risco.</li>
+<li>Interpretar indicadores ambientais.</li>
+<li>Reconhecer situações que exigem intervenção.</li>
+<li>Contribuir para ações de prevenção ambiental.</li>
+</ul>
+
+</div>
+
+
+    <!-- VÍDEO -->
+    <div class="card">
+        <h3>🎥 Videoaula</h3>
+
+        <iframe
+            width="100%"
+            height="450"
+            src="https://www.youtube.com/embed/SEU_VIDEO"
+            title="Videoaula"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- MATERIAIS -->
+    <div class="card">
+        <h3>📂 Materiais para Download</h3>
+
+        <ul class="material-list">
+            <li>
+                <a href="materiais/modulo1/apresentacao.pdf" target="_blank">
+                    📄 Apresentação do Módulo (PDF)
+                </a>
+            </li>
+
+            <li>
+                <a href="materiais/modulo1/manual-vigilancia.pdf" target="_blank">
+                    📘 Manual de Vigilância em Saúde
+                </a>
+            </li>
+
+            <li>
+                <a href="materiais/modulo1/legislacao.docx" target="_blank">
+                    📝 Legislação Básica (Word)
+                </a>
+            </li>
+
+            <li>
+                <a href="materiais/modulo1/slides.pptx" target="_blank">
+                    📊 Slides da Aula (PowerPoint)
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ÁUDIO -->
+    <div class="card">
+        <h3>🎧 Podcast Complementar</h3>
+
+        <audio controls style="width:100%;">
+            <source src="audios/modulo1.mp3" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+        </audio>
+    </div>
+
+    <!-- LEITURA -->
+    <div class="card">
+        <h3>📖 Leitura Complementar</h3>
+
+        <div class="material-item">
+            <h4>Política Nacional de Vigilância Ambiental</h4>
+            <p>
+                Documento que orienta as ações de vigilância em todo o território nacional.
+            </p>
+
+            <a href="materiais/modulo4/pnvs.pdf" target="_blank">
+                Abrir Documento
+            </a>
+        </div>
+    </div>
+
+    <!-- ATIVIDADE -->
+    <div class="card">
+        <h3>📝 Atividade do Módulo</h3>
+
+        <p>
+            Após estudar o conteúdo, responda ao questionário de fixação.
+        </p>
+
+        <button class="btn-curso">
+            Iniciar Atividade
+        </button>
+    </div>
+
+<!-- restante segue o mesmo padrão:
+Videoaula → Materiais → Podcast → Leitura → Atividade -->
+
+</div>
+
+<!-- =========================================
+MÓDULO 5 - SAÚDE DO TRABALHADOR
+========================================= -->
+
+<div id="mod5" class="tab">
+
+<div class="card">
+
+<h2>👷 Módulo 5 - Saúde do Trabalhador</h2>
+
+<p>
+A Saúde do Trabalhador busca promover ambientes laborais seguros,
+prevenir acidentes e monitorar agravos relacionados às atividades profissionais.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🎯 Objetivos de Aprendizagem</h3>
+
+<ul style="padding-left:20px;line-height:2;">
+<li>Compreender os princípios da Saúde do Trabalhador.</li>
+<li>Conhecer os principais riscos ocupacionais.</li>
+<li>Identificar agravos relacionados ao trabalho.</li>
+<li>Entender estratégias de prevenção.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🏆 Competências Desenvolvidas</h3>
+
+<ul style="padding-left:20px;line-height:2;">
+<li>Reconhecer riscos ocupacionais.</li>
+<li>Interpretar normas de segurança.</li>
+<li>Identificar agravos relacionados ao trabalho.</li>
+<li>Promover ambientes laborais mais seguros.</li>
+</ul>
+
+</div>
+
+
+    <!-- VÍDEO -->
+    <div class="card">
+        <h3>🎥 Videoaula</h3>
+
+        <iframe
+            width="100%"
+            height="450"
+            src="https://www.youtube.com/embed/SEU_VIDEO"
+            title="Videoaula"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- MATERIAIS -->
+    <div class="card">
+        <h3>📂 Materiais para Download</h3>
+
+        <ul class="material-list">
+            <li>
+                <a href="materiais/modulo1/apresentacao.pdf" target="_blank">
+                    📄 Apresentação do Módulo (PDF)
+                </a>
+            </li>
+
+            <li>
+                <a href="materiais/modulo1/manual-vigilancia.pdf" target="_blank">
+                    📘 Manual de Vigilância em Saúde
+                </a>
+            </li>
+
+            <li>
+                <a href="materiais/modulo1/legislacao.docx" target="_blank">
+                    📝 Legislação Básica (Word)
+                </a>
+            </li>
+
+            <li>
+                <a href="materiais/modulo1/slides.pptx" target="_blank">
+                    📊 Slides da Aula (PowerPoint)
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ÁUDIO -->
+    <div class="card">
+        <h3>🎧 Podcast Complementar</h3>
+
+        <audio controls style="width:100%;">
+            <source src="audios/modulo1.mp3" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+        </audio>
+    </div>
+
+    <!-- LEITURA -->
+    <div class="card">
+        <h3>📖 Leitura Complementar</h3>
+
+        <div class="material-item">
+            <h4>Política Nacional de Vigilância em Saúde do Trabalhador</h4>
+            <p>
+                Documento que orienta as ações de vigilância em todo o território nacional.
+            </p>
+
+            <a href="materiais/modulo1/pnvs.pdf" target="_blank">
+                Abrir Documento
+            </a>
+        </div>
+    </div>
+
+    <!-- ATIVIDADE -->
+    <div class="card">
+        <h3>📝 Atividade do Módulo</h3>
+
+        <p>
+            Após estudar o conteúdo, responda ao questionário de fixação.
+        </p>
+
+        <button class="btn-curso">
+            Iniciar Atividade
+        </button>
+    </div>
+
+<!-- restante segue o mesmo padrão:
+Videoaula → Materiais → Podcast → Leitura → Atividade -->
+
+</div>
+
+<div id="videos" class="tab">
+
+<div class="card">
+
+<h2>Videoaulas</h2>
+
+<div class="video-grid">
+
+<div class="video">
+<iframe src="https://www.youtube.com/embed/VIDEO1"></iframe>
+</div>
+
+<div class="video">
+<iframe src="https://www.youtube.com/embed/VIDEO2"></iframe>
+</div>
+
+<div class="video">
+<iframe src="https://www.youtube.com/embed/VIDEO3"></iframe>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="materiais" class="tab">
+
+<div class="card">
+
+<h2>Materiais Complementares</h2>
+
+<div class="material">
+<span>Apostila do Curso (PDF)</span>
+<a href="#">Baixar</a>
+</div>
+
+<div class="material">
+<span>Manual de Vigilância em Saúde</span>
+<a href="#">Baixar</a>
+</div>
+
+<div class="material">
+<span>Legislação Atualizada</span>
+<a href="#">Baixar</a>
+</div>
+
+</div>
+
+</div>
+
+<div id="avaliacao" class="tab">
+
+<div class="card">
+
+<h2>Avaliação Final</h2>
+
+<p>
+Após concluir todos os módulos, realize a avaliação para emissão do certificado.
+</p>
+
+<br>
+
+<button style="
+background:#0057B8;
+color:white;
+border:none;
+padding:15px 25px;
+border-radius:12px;
+cursor:pointer;
+">
+Iniciar Avaliação
+</button>
+
+</div>
+
+</div>
+
+<div id="certificado" class="tab">
+
+<div class="card">
+
+<h2>Certificado</h2>
+
+<p>
+Disponível após aprovação na avaliação final.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+Curso Básico de Vigilância em Saúde • Plataforma EAD
+</footer>
+
+<script>
+
+function abrirTab(id,botao){
+
+document.querySelectorAll('.tab')
+.forEach(tab => tab.classList.remove('active'));
+
+document.querySelectorAll('.menu button')
+.forEach(btn => btn.classList.remove('active'));
+
+document.getElementById(id)
+.classList.add('active');
+
+botao.classList.add('active');
+
+}
+
+</script>
+
+</body>
+</html>
