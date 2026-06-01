@@ -1567,35 +1567,83 @@ Videoaula → Materiais → Podcast → Leitura → Atividade -->
 
 </div>
 
+</div>
+
+<!-- =======================
+     VIDEOAULAS
+======================== -->
 <div id="videos" class="tab">
 
-<div class="card">
+    <div class="card">
 
-<h2>Videoaulas</h2>
+        <div class="modulo-tag">
+            🎥 Videoaulas
+        </div>
 
-<div class="video-grid">
+        <h2>Biblioteca de Videoaulas</h2>
 
-<div class="video">
-<iframe src="https://www.youtube.com/embed/VIDEO1"></iframe>
+        <p>
+            Assista aos conteúdos gravados e aprofunde seus conhecimentos em Vigilância em Saúde.
+        </p>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+
+                <div class="video">
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO1"
+                        title="Videoaula 1"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <h3>Introdução à Vigilância em Saúde</h3>
+
+            </div>
+
+            <div class="video-card">
+
+                <div class="video">
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO2"
+                        title="Videoaula 2"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <h3>Vigilância Epidemiológica</h3>
+
+            </div>
+
+            <div class="video-card">
+
+                <div class="video">
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO3"
+                        title="Videoaula 3"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <h3>Vigilância Ambiental</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
-<div class="video">
-<iframe src="https://www.youtube.com/embed/VIDEO2"></iframe>
-</div>
-
-<div class="video">
-<iframe src="https://www.youtube.com/embed/VIDEO3"></iframe>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- =======================
+     MATERIAIS
+======================== -->
 <div id="materiais" class="tab">
 
-    <!-- Biblioteca de Materiais -->
     <div class="card">
 
         <div class="modulo-tag">
@@ -1611,7 +1659,10 @@ Videoaula → Materiais → Podcast → Leitura → Atividade -->
         <div class="materiais-grid">
 
             <div class="material-card">
-                <div class="material-icon">📘</div>
+
+                <div class="material-icon">
+                    📘
+                </div>
 
                 <h3>Apostila do Curso</h3>
 
@@ -1619,15 +1670,20 @@ Videoaula → Materiais → Podcast → Leitura → Atividade -->
                     Material completo contendo todos os conteúdos abordados.
                 </p>
 
-                <a href="arquivos/apostila.pdf"
-                   target="_blank"
-                   class="btn-curso">
+                <a
+                    href="arquivos/apostila.pdf"
+                    target="_blank"
+                    class="btn-curso">
                     Abrir PDF
                 </a>
+
             </div>
 
             <div class="material-card">
-                <div class="material-icon">📊</div>
+
+                <div class="material-icon">
+                    📊
+                </div>
 
                 <h3>Slides da Aula</h3>
 
@@ -1635,34 +1691,42 @@ Videoaula → Materiais → Podcast → Leitura → Atividade -->
                     Apresentação utilizada durante as aulas.
                 </p>
 
-                <a href="arquivos/apresentacao.pptx"
-                   download
-                   class="btn-curso">
+                <a
+                    href="arquivos/apresentacao.pptx"
+                    download
+                    class="btn-curso">
                     Baixar PPTX
                 </a>
+
             </div>
 
             <div class="material-card">
-                <div class="material-icon">⚖️</div>
+
+                <div class="material-icon">
+                    ⚖️
+                </div>
 
                 <h3>Legislação Atualizada</h3>
 
                 <p>
-                    Portarias, normas e documentos oficiais.
+                    Portarias, normas e documentos oficiais relacionados à Vigilância em Saúde.
                 </p>
 
-                <a href="arquivos/legislacao.pdf"
-                   target="_blank"
-                   class="btn-curso">
+                <a
+                    href="arquivos/legislacao.pdf"
+                    target="_blank"
+                    class="btn-curso">
                     Abrir Documento
                 </a>
+
             </div>
 
         </div>
 
     </div>
 
-    <!-- Visualizador de PDF -->
+    <!-- Visualizador -->
+
     <div class="card">
 
         <div class="modulo-tag">
@@ -1683,6 +1747,10 @@ Videoaula → Materiais → Podcast → Leitura → Atividade -->
     </div>
 
 </div>
+
+<!-- =======================
+     AVALIAÇÃO
+======================== -->
 <div id="avaliacao" class="tab">
 
     <div class="card atividade-card">
@@ -1697,14 +1765,21 @@ Videoaula → Materiais → Podcast → Leitura → Atividade -->
             Após concluir todos os módulos, realize a avaliação final para validar seus conhecimentos.
         </p>
 
-        <button class="btn-curso">
+        <p>
+            Será necessário atingir a pontuação mínima definida para emissão do certificado.
+        </p>
+
+        <a href="#" class="btn-curso">
             🚀 Iniciar Avaliação
-        </button>
+        </a>
 
     </div>
 
 </div>
 
+<!-- =======================
+     CERTIFICADO
+======================== -->
 <div id="certificado" class="tab">
 
     <div class="card atividade-card">
@@ -1720,20 +1795,20 @@ Videoaula → Materiais → Podcast → Leitura → Atividade -->
         </p>
 
         <div class="progresso">
-            <span></span>
+            <span style="width:40%;"></span>
         </div>
 
         <p style="margin-top:15px;">
-            Progresso do curso: 40%
+            Progresso do curso: <strong>40%</strong>
         </p>
+
+        <a href="#" class="btn-curso">
+            📄 Visualizar Certificado
+        </a>
 
     </div>
 
 </div>
-</div>
-
-</div>
-
 <footer>
 Curso Básico de Vigilância em Saúde • Plataforma EAD
 </footer>
