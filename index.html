@@ -108,16 +108,7 @@ header p{
 
     color:white;
 }
-.content{
-    flex:1;
-    padding:35px;
-}
-
-.tab{
-display:none;
-animation:fade .4s ease;
-}
-
+   
 @keyframes fade{
 from{
 opacity:0;
@@ -128,21 +119,23 @@ opacity:1;
 transform:none;
 }
 }
-.tab.active{
-    display:block;
+ .content{
+    flex:1;
+    padding:50px;
 }
 
-card{
+.tab.active{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+}
+
+.card{
     background:var(--branco);
     border-radius:20px;
-    padding:30px;
-    margin-bottom:25px;
-
+    padding:32px;
     border:1px solid #e5e7eb;
-
-    box-shadow:
-        0 4px 20px rgba(0,0,0,.04);
-
+    box-shadow:0 4px 20px rgba(0,0,0,.04);
     transition:.3s;
 }
 
