@@ -377,14 +377,13 @@ color:#0057B8;
 
 .materiais-grid{
     display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:25px;
     margin-top:30px;
 }
 
 .material-card{
-    background:white;
+    background:#fff;
     border:1px solid #e2e8f0;
     border-radius:18px;
     padding:25px;
@@ -394,9 +393,7 @@ color:#0057B8;
 
 .material-card:hover{
     transform:translateY(-5px);
-
-    box-shadow:
-    0 15px 30px rgba(0,0,0,.08);
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
 }
 
 .material-icon{
@@ -405,13 +402,14 @@ color:#0057B8;
 }
 
 .material-card h3{
+    color:var(--azul-escuro);
     margin-bottom:10px;
-    color:#003A7A;
 }
 
 .material-card p{
-    margin-bottom:20px;
     color:#64748b;
+    line-height:1.6;
+    margin-bottom:20px;
 }
 
 </style>
@@ -1595,6 +1593,7 @@ Videoaula → Materiais → Podcast → Leitura → Atividade -->
 
 <div id="materiais" class="tab">
 
+    <!-- Biblioteca de Materiais -->
     <div class="card">
 
         <div class="modulo-tag">
@@ -1604,39 +1603,80 @@ Videoaula → Materiais → Podcast → Leitura → Atividade -->
         <h2>Biblioteca de Conteúdos</h2>
 
         <p>
-            Faça download dos materiais de apoio utilizados durante o curso.
+            Faça download ou visualize os materiais de apoio utilizados durante o curso.
         </p>
 
         <div class="materiais-grid">
 
             <div class="material-card">
                 <div class="material-icon">📘</div>
+
                 <h3>Apostila do Curso</h3>
-                <p>Material completo em PDF.</p>
-                <a href="arquivos/apostila.pdf" class="btn-curso" target="_blank">
+
+                <p>
+                    Material completo contendo todos os conteúdos abordados.
+                </p>
+
+                <a href="arquivos/apostila.pdf"
+                   target="_blank"
+                   class="btn-curso">
                     Abrir PDF
                 </a>
             </div>
 
             <div class="material-card">
                 <div class="material-icon">📊</div>
+
                 <h3>Slides da Aula</h3>
-                <p>Apresentação oficial.</p>
-                <a href="arquivos/slides.pdf" class="btn-curso" target="_blank">
-                    Visualizar
+
+                <p>
+                    Apresentação utilizada durante as aulas.
+                </p>
+
+                <a href="arquivos/apresentacao.pptx"
+                   download
+                   class="btn-curso">
+                    Baixar PPTX
                 </a>
             </div>
 
             <div class="material-card">
                 <div class="material-icon">⚖️</div>
+
                 <h3>Legislação Atualizada</h3>
-                <p>Normativas e portarias.</p>
-                <a href="arquivos/legislacao.pdf" class="btn-curso" target="_blank">
-                    Abrir
+
+                <p>
+                    Portarias, normas e documentos oficiais.
+                </p>
+
+                <a href="arquivos/legislacao.pdf"
+                   target="_blank"
+                   class="btn-curso">
+                    Abrir Documento
                 </a>
             </div>
 
         </div>
+
+    </div>
+
+    <!-- Visualizador de PDF -->
+    <div class="card">
+
+        <div class="modulo-tag">
+            📑 Visualização Integrada
+        </div>
+
+        <h2>Leitura Online</h2>
+
+        <p>
+            Consulte os materiais diretamente na plataforma sem necessidade de download.
+        </p>
+
+        <iframe
+            src="arquivos/apostila.pdf"
+            class="slide-viewer">
+        </iframe>
 
     </div>
 
